@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ public class Main {
         Question firstQuestion = new Question();
         firstQuestion.setQuestionText("\nЧто такое конструктор у класса?");
         firstQuestion.setQuestionRightAnswer(1);
-        firstQuestion.answers.add("1.метод, который вызывается при создании экземпляра объекта;");
+        firstQuestion.answers.add("1.метод, который вызывается при создании экземпляра объекта;\n");
         firstQuestion.answers.add("2.специальная переменная класса;\n");
         firstQuestion.answers.add("3.объект класса;\n");
         question.add(firstQuestion);
@@ -50,10 +51,6 @@ public class Main {
 
         Scanner ansScanner = new Scanner(System.in);
 
-//        Question[] qArray = new Question[question.size()];
-//        question.toArray(qArray);
-        int a=0;
-
         Answer ans = new Answer();
 
         for (Question i : question) {
@@ -70,15 +67,24 @@ public class Main {
             }
             catch (WrongAnswerException e){
                 e.printStackTrace();
+                ans.boolAns.add(false);
+                ans.wrongAnswers.add(ans);
             }
             ans.yourAnswers.add(ans.getAnswer());
             if (ans.getAnswer() == i.getQuestionRightAnswer()){
-                a++;
-                ans.ans222.add(true);
+                ans.boolAns.add(true);
             }
-            else ans.ans222.add(false);
+            else {
+                ans.boolAns.add(false);
+                ans.wrongAnswers.add(ans);
+            }
         }
-        System.out.println("Вы правильно отевтили на " + a + " из " + question.size() + " вопросов");
-
+        System.out.println("Вы правильно отевтили на " + Collections.frequency(ans.boolAns, true) + " из " + question.size() + " вопросов");
+        if (Collections.frequency(ans.boolAns, true)==question.size()) System.out.println("грац");
+        else {
+            for (Answer i : ans.wrongAnswers) {
+                    System.out.println(i);
+            }
+        }
     }
 }

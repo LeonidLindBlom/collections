@@ -26,7 +26,7 @@ public class Question {
 
     @Override
     public String toString() {
-        return  questionText + '\n' +
-                  answers;
+        return questionText + "\n" +
+                answers;
     }
 }

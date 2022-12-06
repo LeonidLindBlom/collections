@@ -7,7 +7,8 @@ public class Answer {
     private int answer;
     Question question;
     public List<Integer> yourAnswers = new ArrayList<>();
-    public List<Boolean> ans222 = new ArrayList<>();
+    public List<Boolean> boolAns = new ArrayList<>();
+    List<Answer> wrongAnswers = new ArrayList<>();
 
     public int getAnswer() {
         return answer;
@@ -19,8 +20,8 @@ public class Answer {
 
     @Override
     public String toString() {
-        return "Вопрос" + question.getQuestionText() +
-                "Ваш ответ" + yourAnswers +
-                "Правильный ответ" + question.getQuestionRightAnswer();
+        return //"Вопрос" + question.getQuestionText() +
+                "Ваш ответ " + answer;
+                //"Правильный ответ" + question.getQuestionRightAnswer();
     }
 }
