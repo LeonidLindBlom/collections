@@ -56,12 +56,12 @@ public class Main {
 
         Answer ans = new Answer();
 
-        for (int i = 0; i < question.size(); i++) {
-            System.out.println(question.get(i));
+        for (Question i : question) {
+            System.out.println(i);
             System.out.println("Введите номер ответа: ");
             try {
                 ans.setAnswer(ansScanner.nextInt());
-                if (ans.getAnswer()>question.get(i).answers.size()){
+                if (ans.getAnswer()>i.answers.size()){
                     throw new WrongAnswerException ("Такого варианта нет");
                 }
                 else if (ans.getAnswer()<1){
@@ -72,7 +72,7 @@ public class Main {
                 e.printStackTrace();
             }
             ans.yourAnswers.add(ans.getAnswer());
-            if (ans.getAnswer() == question.get(i).getQuestionRightAnswer()){
+            if (ans.getAnswer() == i.getQuestionRightAnswer()){
                 a++;
                 ans.ans222.add(true);
             }
