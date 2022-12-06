@@ -6,7 +6,7 @@ import java.util.List;
 public class Question {
     private String questionText;
     private int questionRightAnswer;
-    public List<String> answers = new ArrayList<String>();
+    public List<String> answers = new ArrayList<>();
 
     public String getQuestionText() {
         return questionText;

@@ -6,7 +6,8 @@ import java.util.List;
 public class Answer {
     private int answer;
     Question question;
-    public List<Integer> yourAnswers = new ArrayList<Integer>();
+    public List<Integer> yourAnswers = new ArrayList<>();
+    public List<Boolean> ans222 = new ArrayList<>();
 
     public int getAnswer() {
         return answer;
@@ -18,7 +19,7 @@ public class Answer {
 
     @Override
     public String toString() {
-        return "Вопрос" + question +
+        return "Вопрос" + question.getQuestionText() +
                 "Ваш ответ" + yourAnswers +
                 "Правильный ответ" + question.getQuestionRightAnswer();
     }

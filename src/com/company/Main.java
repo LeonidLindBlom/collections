@@ -50,18 +50,18 @@ public class Main {
 
         Scanner ansScanner = new Scanner(System.in);
 
-        Question[] qArray = new Question[question.size()];
-        question.toArray(qArray);
+//        Question[] qArray = new Question[question.size()];
+//        question.toArray(qArray);
         int a=0;
 
         Answer ans = new Answer();
 
-        for (int i = 0; i < qArray.length; i++) {
-            System.out.println(qArray[i]);
+        for (int i = 0; i < question.size(); i++) {
+            System.out.println(question.get(i));
             System.out.println("Введите номер ответа: ");
             try {
                 ans.setAnswer(ansScanner.nextInt());
-                if (ans.getAnswer()>qArray[i].answers.size()){
+                if (ans.getAnswer()>question.get(i).answers.size()){
                     throw new WrongAnswerException ("Такого варианта нет");
                 }
                 else if (ans.getAnswer()<1){
@@ -72,10 +72,13 @@ public class Main {
                 e.printStackTrace();
             }
             ans.yourAnswers.add(ans.getAnswer());
-            if (ans.getAnswer() == qArray[i].getQuestionRightAnswer()){
+            if (ans.getAnswer() == question.get(i).getQuestionRightAnswer()){
                 a++;
+                ans.ans222.add(true);
             }
+            else ans.ans222.add(false);
         }
-        System.out.println("Вы правильно отентили на " + a + " из " + question.size() + " вопросов");
+        System.out.println("Вы правильно отевтили на " + a + " из " + question.size() + " вопросов");
+
     }
 }
