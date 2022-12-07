@@ -20,8 +20,10 @@ public class Answer {
 
     @Override
     public String toString() {
-        return //"Вопрос" + question.getQuestionText() +
-                "Ваш ответ " + answer;
-                //"Правильный ответ" + question.getQuestionRightAnswer();
+        return "Answer{" +
+                "answer=" + answer +
+                ", question=" + question +
+                ", yourAnswers=" + yourAnswers +
+                '}';
     }
 }

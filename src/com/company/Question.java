@@ -8,6 +8,7 @@ public class Question {
     private int questionRightAnswer;
     public List<String> answers = new ArrayList<>();
 
+
     public String getQuestionText() {
         return questionText;
     }

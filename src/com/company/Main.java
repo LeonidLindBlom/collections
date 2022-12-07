@@ -82,8 +82,14 @@ public class Main {
         System.out.println("Вы правильно отевтили на " + Collections.frequency(ans.boolAns, true) + " из " + question.size() + " вопросов");
         if (Collections.frequency(ans.boolAns, true)==question.size()) System.out.println("грац");
         else {
-            for (Answer i : ans.wrongAnswers) {
-                    System.out.println(i);
+            for (int i = 0; i < question.size(); i++) {
+                if(question.get(i).getQuestionRightAnswer()!=ans.yourAnswers.get(i)){
+                    int q =question.indexOf(question.get(i));
+                    q++;
+                    System.out.println("\n" + "Вы неправильно ответили на вопрос " + q);
+                    System.out.println(question.get(i).getQuestionText());
+                    System.out.println("Правильный ответ: " + question.get(i).getQuestionRightAnswer());
+                }
             }
         }
     }
